@@ -34,7 +34,7 @@ def indentificar(imagem):
     
 
 
-    def process_single_image(model, imagem, size, preprocess_input,nome):
+    def process_single_image(model, imagem, size, preprocess_input,nome = "modelo"):
 
         # Lendo as Imagens Usando o TensorFlow, transformando em uma sequência de bytes
         tf_image = tf.io.read_file(imagem)
@@ -66,24 +66,18 @@ def indentificar(imagem):
         plt.axis('off')
         label = decoded_preds[0][0][1]
         score = decoded_preds[0][0][2] * 100
-        label1 = decoded_preds[0][1][1]
-        score1 = decoded_preds[0][1][2] * 100
-        label2 = decoded_preds[0][2][1]
-        score2 = decoded_preds[0][2][2] * 100
-        label3 = decoded_preds[0][3][1]
-        score3 = decoded_preds[0][3][2] * 100
-        label4 = decoded_preds[0][4][1]
-        score4 = decoded_preds[0][4][2] * 100
-        title = label + ' ' + str('{:.2f}%'.format(score))
-        #plt.title(title, fontsize=16)
-        #plt.show()
         
-        print(nome)
-        print(f"{label}: {round(score, 2)}%")
-        print(f"{label1}: {round(score1, 2)}%")
-        print(f"{label2}: {round(score2, 2)}%")
-        print(f"{label3}: {round(score3, 2)}%")
-        print(f"{label4}: {round(score4, 2)}%")
+        
+        if score < 40:
+            print("Infelizmente nao tenho uma raça certa para esse animal...")
+        else:
+            title = label + ' ' + str('{:.2f}%'.format(score))
+            plt.title(title, fontsize=16)
+            plt.show()
+            
+            print(nome)
+            #print(f"{label}: {round(score, 2)}%")
+        
 
     # Aqui você declara qual é o seu modelo, no caso o VGG19, e que quer os tamanhos 224x224.
     model = model_vgg19  # Alterado para usar o VGG19
