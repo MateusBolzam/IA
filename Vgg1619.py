@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 from PIL import Image
 import glob as glob
-import matplotlib.image as mpimg
-from io import BytesIO  
+
+
 
 def indentificar(imagem):
     #aqui estou inicializando o modelo pre treinado vgg16

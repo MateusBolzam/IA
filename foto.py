@@ -1,7 +1,7 @@
 import glob
-import cv2
+
 import os
-import shutil
+
 from Vgg1619 import indentificar 
 
 
