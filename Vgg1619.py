@@ -1,15 +1,11 @@
 
-import cv2
+
 from skimage import io
 import matplotlib.pyplot as plt
-
 import tensorflow as tf
-
 from PIL import Image
 import glob as glob
-import os
 import matplotlib.image as mpimg
-import requests
 from io import BytesIO  
 
 def indentificar(imagem):
