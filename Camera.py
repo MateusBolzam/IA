@@ -20,7 +20,7 @@ def webcam():
 
 
     # Defina um contador para nomear os arquivos de imagem
-    contador = 0
+    contador = 0                                                                                  
 
     while True:
         ret, frame = captura.read()
